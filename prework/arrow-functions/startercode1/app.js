@@ -115,11 +115,7 @@ let sum = (a,b,c,d) => `${a + b + c + d}`;
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(sum(1, 2, 3, 4));
 
-let objectLit = (key1,key2,key3) => ({
-  key1 : 'value1',
-  key2 : 'value2',
-  key3 : 'value3',
-});
+let objectLit = (key1,key2,key3) => ({key1 : 'value1',key2 : 'value2',key3 : 'value3',});
 
 // let objectLit = function() {
 //   return {
