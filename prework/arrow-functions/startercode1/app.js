@@ -221,6 +221,6 @@ console.log(joe.scopeArrow());
 // 1. What is "this" when joe.scope() is invoked?
 //  It is referring to the constructor function
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//  It is referring to the windows files
+//  It is referring to the windows object
 // 3. Explain why "this" is different when an arrow function is used.
 //  This in an arrow function will refer to the window object or global object if it isnt contained within something whereas this in a regular function will refer to its parent
