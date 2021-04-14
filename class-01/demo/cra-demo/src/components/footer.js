@@ -1,7 +1,15 @@
-export default function Footer() {
+import { Container, Navbar } from 'react-bootstrap'
+import { Component } from 'react';
+
+class Footer extends Component {
+  render() {
     return (
-      <footer>Author : Kyle Hoac</footer>
+      <Container>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">Horned Beasts</Navbar.Brand>
+      </Navbar>
+    </Container>
     )
   }
-
- 
+}
+export default Footer
