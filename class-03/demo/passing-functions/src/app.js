@@ -1,16 +1,20 @@
-import React from 'react';
-import Parent from './parent.js';
-import Header from './header';
+import { Component } from 'react'
+import  Container from 'react-bootstrap/Container'
+import Header from './components/header'
+import Parent from './components/parent'
+class App extends Component {
 
-class App extends React.Component {
-  render(){
+  render() {
     return (
-      <div className="App">
-        <Header title={'Billy is a teenager'} />
+      <Container fluid>
+        <Header 
+          title = "Kazaan's Greatest"
+        />
         <Parent />
-      </div>
-    );
+      </Container>
+    )
   }
 }
+
 
 export default App;
