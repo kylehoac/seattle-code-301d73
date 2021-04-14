@@ -73,3 +73,4 @@ render() {
 }
 }
 export default App;
+// Code inspired by demo
