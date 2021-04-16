@@ -1,22 +1,62 @@
 import { Component } from 'react';
-import HornedBeastData from '../data.json'
-import { CardColumns, Card} from 'react-bootstrap';
+import items from '../data.json'
+import { CardColumns, Card, Form} from 'react-bootstrap';
 import PopModal from './modal.js';
 
 class Main extends Component {
-    render() {
-        return (
-            <CardColumns>
+    constructor(props){
+        super(props);
+        this.state = {
+            hornsArr: [],
+        }
+    }
 
-                {HornedBeastData.map(item => (
-                    <LikedHornedBeast
-                        title={item.title}
-                        description={item.description}
-                        imgUrl={item.image_url}
-                    />
-                ))}
-            </CardColumns>
-        )
+    filterHorns = (val) => {
+        console.log(val);
+        if (val === isNaN){
+            this.setState({ hornsArr: [] });
+        } else {
+            const newArr = items.filter(horns => horns.horns === val);
+            this.setState({ hornsArr: newArr });
+        }
+    }
+    render() {
+        if (this.state.hornsArr.length > 0) {
+            return (
+                <>
+                <HornForm filterfunc={this.filterHorns}/>
+                <CardColumns>
+    
+                    {this.state.hornsArr.map(item => (
+                        <LikedHornedBeast
+                            title={item.title}
+                            description={item.description}
+                            imgUrl={item.image_url}
+                            horns={item.horns}
+                        />
+                    ))}
+                </CardColumns>
+                </>
+            );
+        } else {
+            return (
+                <>
+                <HornForm filterfunc={this.filterHorns}/>
+                <CardColumns>
+    
+                    {items.map(item => (
+                        <LikedHornedBeast
+                            title={item.title}
+                            description={item.description}
+                            imgUrl={item.image_url}
+                            horns={item.horns}
+                        />
+                    ))}
+                </CardColumns>
+                </>
+            )
+
+        }
     }
 }
 
@@ -72,3 +112,33 @@ class LikedHornedBeast extends Component {
     }
 }
 export default Main;
+
+class HornForm extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            val: ''
+        }
+    }
+    handleSubmit = (event) => {
+        this.props.filterfunc(parseInt(event.target.value));
+    }
+    render() {
+      return (
+        <>
+        <Form>
+            <Form.Group>
+              <Form.Control as="select" size="lg" onChange={this.handleSubmit}>
+                <option value =''>Select Horns</option>
+                <option value ='1'>1</option>
+                <option value ='2'>2</option>
+                <option value ='3'>3</option>
+                <option value ='100'>WOW!</option>
+              </Form.Control>
+            </Form.Group>
+        </Form>
+        </>
+      )
+    }
+  }
