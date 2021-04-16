@@ -1,7 +1,8 @@
 import { Container, Navbar } from 'react-bootstrap'
 import { Component } from 'react';
 
-class Header extends Component {
+
+export default class Header extends Component {
     render() {
       return (
         <Container>
@@ -12,4 +13,3 @@ class Header extends Component {
       )
     }
   }
-export default Header;

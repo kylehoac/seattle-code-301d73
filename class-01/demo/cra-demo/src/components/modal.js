@@ -12,7 +12,7 @@ class PopModal extends Component {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <img src={this.props.imgUrl} />
+                        <img class = "imagesize" src={this.props.imgUrl} />
                     </Modal.Body>
 
                     <Modal.Footer>
